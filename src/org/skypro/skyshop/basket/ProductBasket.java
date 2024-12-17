@@ -47,13 +47,14 @@ public class ProductBasket {
         }
         return result;
     }
-    public void productAvailabilityCheck() {
+    public boolean productAvailabilityCheck() {
+        boolean equals = false;
         for (int i = 0; i < products.length; i++) {
             if (products[i] != null) {
-                System.out.println(Arrays.equals(products, getProducts()));
+                equals = Arrays.equals(products, getProducts());
             }
         }
-        System.out.println(false);
+        return equals;
     }
     public void emptyingTheTrash() {
         for (int i = 0; i < products.length; i++) {
