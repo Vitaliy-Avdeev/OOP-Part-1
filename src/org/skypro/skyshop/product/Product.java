@@ -2,14 +2,11 @@ package org.skypro.skyshop.product;
 
 import java.util.Objects;
 
-public final class Product {
-    private  String name;
-    private Double price;
+public class Product {
+    private final String name;
+    private final Double price;
 
-    public Product() {
-    }
-
-    public  Product(String name, Double price) {
+    public Product(String name, Double price) {
         this.name = name;
         this.price = price;
     }
@@ -39,3 +36,5 @@ public final class Product {
         return "<" + this.name + ">" + ":  <" + this.price + ">";
     }
 }
+
+

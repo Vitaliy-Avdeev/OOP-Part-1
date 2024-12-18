@@ -47,6 +47,7 @@ public class ProductBasket {
         }
         return result;
     }
+
     public boolean productAvailabilityCheck() {
         boolean equals = false;
         for (int i = 0; i < products.length; i++) {
@@ -56,6 +57,7 @@ public class ProductBasket {
         }
         return equals;
     }
+
     public void emptyingTheTrash() {
         for (int i = 0; i < products.length; i++) {
             products[i] = null;
