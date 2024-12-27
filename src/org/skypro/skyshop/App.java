@@ -10,7 +10,7 @@ public class App {
         Product product3 = new Product("Роллы", 658.5);
         Product product4 = new Product("Картофель", 278.);
         Product product5 = new Product("Кола", 86.5);
-        Product product6 = new Product("Напиток", 45.0);
+        Product product6 = new Product("Напиток", 50.0);
 
         ProductBasket basket = new ProductBasket();
         basket.addProduct(product1);
