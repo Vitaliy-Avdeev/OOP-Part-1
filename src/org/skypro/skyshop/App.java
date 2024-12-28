@@ -1,28 +1,35 @@
 package org.skypro.skyshop;
 
 import org.skypro.skyshop.basket.ProductBasket;
+import org.skypro.skyshop.product.DiscountedProduct;
+import org.skypro.skyshop.product.FixPriceProduct;
 import org.skypro.skyshop.product.Product;
+import org.skypro.skyshop.product.SimpleProduct;
 
 public class App {
     public static void main(String[] args) {
-        Product product1 = new Product("Коктель", 89.0);
-        Product product2 = new Product("Пицца", 560.8);
-        Product product3 = new Product("Роллы", 658.5);
-        Product product4 = new Product("Картофель", 278.);
-        Product product5 = new Product("Кола", 86.5);
-        Product product6 = new Product("Напиток", 45.0);
+        SimpleProduct product1 = new SimpleProduct("Коктель", 89.0);
+        SimpleProduct product2 = new SimpleProduct("Роллы", 560.);
+        DiscountedProduct product3 = new DiscountedProduct("Пицца", 658.,20);
+        DiscountedProduct product4 = new DiscountedProduct("Картофель", 278.0,18);
+        FixPriceProduct product5 = new FixPriceProduct("Кола");
+        SimpleProduct product6 = new SimpleProduct("Напиток", 45);
 
         ProductBasket basket = new ProductBasket();
-        basket.addProduct(product1);
-        basket.addProduct(product2);
-        basket.addProduct(product3);
-        basket.addProduct(product4);
-        basket.addProduct(product5);
-        basket.addProduct(product6);
+        basket.addProduct1(product1);
+        basket.addProduct1(product2);
+        basket.addProduct1(product3);
+        basket.addProduct1(product4);
+        basket.addProduct1(product5);
+        basket.addProduct1(product6);
 
-        basket.printBasket();
-        basket.productAvailabilityCheck();
-        basket.emptyingTheTrash();
+        basket.printBasket5();
+        System.out.println(basket.isHasProduct("Кола"));
+        System.out.println(basket.isHasProduct("Десерт"));
 
+        basket.deleteBasket();
+        basket.printBasket5();
+
+        System.out.println(basket.isHasProduct("Десерт"));
     }
 }
