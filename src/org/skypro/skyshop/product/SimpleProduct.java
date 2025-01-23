@@ -1,8 +1,11 @@
 package org.skypro.skyshop.product;
+
 public class SimpleProduct extends Product {
     private  double price;
     public SimpleProduct(String name, double price) {
         super(name);
+        if (price < 1)
+            throw new IllegalArgumentException("Ошибка - цена меньше одного");
         this.price = price;
     }
     public double getPrice() {
