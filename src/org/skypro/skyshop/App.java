@@ -1,6 +1,7 @@
 package org.skypro.skyshop;
 
 import java.util.List;
+import java.util.Map;
 
 import org.skypro.skyshop.article.Article;
 import org.skypro.skyshop.basket.ProductBasket;
@@ -32,11 +33,11 @@ public class App {
         System.out.println("\n===Список товаров===\n");
         basket.printBasket();
         System.out.println("\n===Список товаров===\n");
-        List removedProducts = basket.removeProduct("Картофель");
+        Map removedProducts = basket.removeProduct("Картофель");
         basket.printBasket();
         System.out.println("Удаленные товары: " + String.valueOf(removedProducts));
         System.out.println("\n===Список товаров===\n");
-        List removedProductsTry = basket.removeProduct("Кола");
+        Map removedProductsTry = basket.removeProduct("Кола");
         if (removedProductsTry.isEmpty()) {
             System.out.println("Список пуст");
         } else {
