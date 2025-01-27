@@ -9,10 +9,5 @@ public interface Searchable {
 
     default String getStringRepresentation() {
         return "Имя объекта - " + getName() + " — Тип объекта - " + getType();
-
     }
-    default String getMostSimilarElement() {
-        return getSearchTerm();
-    }
-
 }
