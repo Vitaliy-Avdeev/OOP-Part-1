@@ -10,7 +10,6 @@ public class ComparatorOfOrder implements Comparator<Searchable> {
         if (o1.getStringRepresentation().length() != o2.getStringRepresentation().length()) {
             return Integer.compare(o2.getStringRepresentation().length(), o1.getStringRepresentation().length());
         }
-        return o2.getStringRepresentation().compareTo(o1.getStringRepresentation());
+        return o1.getStringRepresentation().compareTo(o2.getStringRepresentation());
     }
 }
-

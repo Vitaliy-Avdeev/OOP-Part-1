@@ -1,5 +1,7 @@
 package org.skypro.skyshop;
 
+import java.util.*;
+
 import org.skypro.skyshop.article.Article;
 import org.skypro.skyshop.basket.ProductBasket;
 import org.skypro.skyshop.exception.BestResultNotFound;
@@ -12,7 +14,6 @@ import org.skypro.skyshop.searchengine.SearchEngine;
 public class App {
     public App() {
     }
-
     public static void main(String[] args) {
         SimpleProduct product1 = new SimpleProduct("Коктель", (double) 80.0F);
         SimpleProduct product2 = new SimpleProduct("Роллы", (double) 560.0F);
@@ -20,13 +21,16 @@ public class App {
         DiscountedProduct product4 = new DiscountedProduct("Картофель", (double) 278.0F, 18);
         FixPriceProduct product5 = new FixPriceProduct("Кола");
         SimpleProduct product6 = new SimpleProduct("Напиток", (double) 45.0F);
+
         ProductBasket basket = new ProductBasket();
+
         basket.addProduct(product1);
         basket.addProduct(product2);
         basket.addProduct(product3);
         basket.addProduct(product4);
         basket.addProduct(product5);
         basket.addProduct(product6);
+
         System.out.println("\n===Список товаров===\n");
 
         basket.printBasket();
@@ -35,7 +39,7 @@ public class App {
 
         var removedProducts = basket.removeProduct("Картофель");
         basket.printBasket();
-        System.out.println("Удаленные товары: " + String.valueOf(removedProducts));
+        System.out.println("Удаленные товары: " + removedProducts);
 
         System.out.println("\n===Список товаров===\n");
 
@@ -68,7 +72,7 @@ public class App {
 
         Article article1 = new Article("1", "1");
         Article article2 = new Article("2", "2");
-        Article article3 = new Article("3", "3");
+        Article article3 = new Article("33", "33");
         Article article4 = new Article("4", "4");
 
         searchEngine.add(article1);
@@ -76,23 +80,26 @@ public class App {
         searchEngine.add(article3);
         searchEngine.add(article4);
 
-        for (Searchable results : searchEngine.search("PRODUCT")) {
-            if (results != null) {
-                System.out.println(results);
-            }
+        Set<Searchable> searchResults = searchEngine.search("PRODUCT");
+        for (Searchable results : searchResults) {
+            if (results == null) continue;
+            System.out.println(results);
         }
         System.out.println();
-        for (Searchable results : searchEngine.search("ARTICLE")) {
-            if (results != null) {
-                System.out.println(results);
-            }
+
+        searchResults = searchEngine.search("ARTICLE");
+        for (Searchable results : searchResults) {
+            if (results == null) continue;
+            System.out.println(results);
         }
         System.out.println();
-        for (Searchable results : searchEngine.search("Кола")) {
-            if (results != null) {
-                System.out.println(results);
-            }
+
+        searchResults = searchEngine.search("Кола");
+        for (Searchable results : searchResults) {
+            if (results == null) continue;
+            System.out.println(results);
         }
+
         System.out.println("\n=== Система поиска и создания исключений ===\n");
 
         try {

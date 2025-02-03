@@ -19,6 +19,7 @@ public class ProductBasket {
         StringBuilder basketPrint = new StringBuilder();
         basket.values().stream().flatMap(Collection::stream).forEach(product -> basketPrint.append(product).append("\n"));
         int countSpecial = (int) basket.values().stream().flatMap(Collection::stream).filter(Product::isSpecial).count();
+
         if (countSpecial != 0) {
             basketPrint.append("Специальных товаров: ").append(countSpecial).append("\n");
         }
@@ -50,6 +51,7 @@ public class ProductBasket {
 
     @Override
     public boolean equals(Object o) {
+        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ProductBasket that = (ProductBasket) o;
         return Objects.equals(basket, that.basket);
