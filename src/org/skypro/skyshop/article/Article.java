@@ -34,6 +34,7 @@ public record Article(String articleTitle, String articleText) implements Search
 
     @Override
     public boolean equals(Object o) {
+        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Article article = (Article) o;
         return Objects.equals(articleText, article.articleText) && Objects.equals(articleTitle, article.articleTitle);
